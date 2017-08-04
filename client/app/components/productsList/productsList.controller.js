@@ -1,12 +1,14 @@
 class ProductsListController {
-  constructor($state) {
+  constructor($state, ProductsService) {
     'ngInject';
     this.$state = $state;
+    this.productsService = ProductsService;
+
     this.name = 'productsList';
   }
 
   selectProduct (event) {
-    this.$state.go('product', {
+    this.$state.go('productDetails', {
       id: event.productId
     });
   }

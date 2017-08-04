@@ -1,0 +1,29 @@
+<div>
+  <h1>{{ ::$ctrl.product.title }}</h1>
+  
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div>
+        Price:
+        <span class="label label-info">
+          {{ ::$ctrl.product.price | currency }}
+        </span>
+      </div>
+      <div>
+        Description:
+        {{ ::$ctrl.product.description }}
+      </div>
+    </div>
+  </div>
+  
+  <button
+    class="btn btn-lg btn-success">
+    Update product
+  </button>
+  
+  <button
+    class="btn btn-lg btn-danger"
+    ng-click="$ctrl.deleteProduct()">
+    Delete product
+  </button>
+</div>

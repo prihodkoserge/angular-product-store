@@ -6,6 +6,7 @@ let productsListModule = angular.module('productsList', [
   uiRouter
 ])
 .component('productsList', productsListComponent)
+
 .config(($stateProvider) => {
   'ngInject';
 
@@ -18,6 +19,7 @@ let productsListModule = angular.module('productsList', [
       }
     });
 })
+
 .name;
 
 export default productsListModule;
