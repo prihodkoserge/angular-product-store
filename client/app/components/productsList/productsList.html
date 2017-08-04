@@ -7,7 +7,8 @@
     on-select="$ctrl.selectProduct($event);">
   </product>
   
-  <div class="message warning" ng-if="!$ctrl.products.length">
-    No products
+  <div ng-if="!$ctrl.products.length" class="alert alert-warning" role="alert">
+    No products...
+    <a ui-sref="newProduct()">Let create?</a>
   </div>
 </div>
