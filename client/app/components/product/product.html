@@ -1,0 +1,6 @@
+<div class="product-item">
+  <h3>{{ ::$ctrl.product.title }}</h3>
+  <span>{{ ::$ctrl.product.price | currency}}</span>
+  <div>{{ ::$ctrl.product.description }}</div>
+  <button ng-click="$ctrl.select()">More details</button>
+</div>
