@@ -6,7 +6,7 @@ class ProductsListController {
   }
 
   selectProduct (event) {
-    $state.go('product', {
+    this.$state.go('product', {
       id: event.productId
     });
   }

@@ -1,0 +1,31 @@
+<div>
+  <h1>{{ $ctrl.name }}</h1>
+  
+  <form name="newProductForm" novalidate>
+    <div>
+      <input
+        type="text"
+        name="title"
+        ng-model="$ctrl.product.title">
+    </div>
+    
+    <div>
+      <textarea
+        ng-model="$ctrl.product.description">
+      </textarea>
+    </div>
+  
+    <div>
+      <input
+        type="number"
+        name="price"
+        ng-model="$ctrl.product.price">
+    </div>
+    
+    <div>
+      <button ng-click="$ctrl.create()">
+        Create new product
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,10 +1,6 @@
 class ProductsListService {
   constructor() {
-
-  }
-
-  getProducts () {
-    return [
+    this.products = [
       {
         id: 0,
         title: 'Book1',
@@ -36,6 +32,16 @@ class ProductsListService {
         description: 'Nope'
       }
     ];
+  }
+
+  createProduct (product) {
+    const id = this.products.length + 1;
+    const newProduct = Object.assign({}, product, { id });
+    this.products.push(newProduct);
+  }
+
+  getProducts () {
+    return this.products;
   }
 }
 
