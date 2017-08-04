@@ -1,6 +1,18 @@
 <div class="product-item">
-  <h3>{{ ::$ctrl.product.title }}</h3>
-  <span>{{ ::$ctrl.product.price | currency}}</span>
-  <div>{{ ::$ctrl.product.description }}</div>
-  <button ng-click="$ctrl.select()">More details</button>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        {{ ::$ctrl.product.title }}
+        <span class="label label-info">
+        {{ ::$ctrl.product.price | currency}}
+      </span>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div>
+        {{ ::$ctrl.product.description }}
+      </div>
+      <button class="btn btn-success" ng-click="$ctrl.select()">More details</button>
+    </div>
+  </div>
 </div>

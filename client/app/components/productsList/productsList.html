@@ -1,14 +1,11 @@
 <div class="products-list">
   <h1>{{ $ctrl.name }}</h1>
   
-  <ul>
-    <li ng-repeat="product in $ctrl.products">
-      <product
-        product="product"
-        on-select="$ctrl.selectProduct($event);">
-      </product>
-    </li>
-  </ul>
+  <product
+    ng-repeat="product in $ctrl.products"
+    product="product"
+    on-select="$ctrl.selectProduct($event);">
+  </product>
   
   <div class="message warning" ng-if="!$ctrl.products.length">
     No products

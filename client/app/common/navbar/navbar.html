@@ -1,8 +1,25 @@
-<nav class="navbar">
-  <div class="logo">
-    <h1><a ui-sref="home">{{ $ctrl.name }}</a></h1>
-  </div>
-  <div class="nav-links">
-    <span><a ui-sref="about">about</a></span>
-  </div>
+<nav class="navbar app-navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Product Store</a>
+    </div>
+    
+      <ul class="nav navbar-nav">
+        <li>
+          <a
+            ui-sref="products()"
+            ui-sref-active="active">
+            Our products
+          </a>
+        </li>
+        
+        <li>
+          <a
+            ui-sref="newProduct()"
+            ui-sref-active="active">
+            Create product
+          </a>
+        </li>
+      </ul>
+  </div><!-- /.container-fluid -->
 </nav>

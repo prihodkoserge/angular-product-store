@@ -1,22 +1,89 @@
 @import '../common';
 
-.navbar {
-  height: 6.5rem;
-  background-color: $primaryColor;
-  padding: 1rem;
+$bgDefault      : #3097D1;
+$bgHighlight    : #268aae;
+$colDefault     : #7ac7f1;
+$colHover       : #f9fdff;
 
-  .nav-links,
-  .logo {
-    display: inline-block;
+.app-navbar {
+  border-radius: 0 !important;
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+
+  .navbar-brand {
+    color: $colDefault;
+
+    &:hover, &:focus {
+      color: $colHover;
+    }
   }
 
-  .logo {
-    color: $lightTextColor;
-    margin-right: 50%;
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover, &:focus, &.active {
+          color: $colHover;
+          background-color: #268aae;
+        }
+      }
+    }
+
+    .active {
+      > a, > a:hover, > a:focus {
+        color: $colHover;
+        background-color: $bgHighlight;
+      }
+    }
+
+    .open {
+      > a, > a:hover, > a:focus {
+        color: $colHover;
+        background-color: $bgHighlight;
+
+        .caret {
+          border-top-color: $colHover;
+          border-bottom-color: $colHover;
+        }
+      }
+    }
+
+    > .dropdown {
+      > a {
+        .caret {
+          border-top-color: $colDefault;
+          border-bottom-color: $colDefault;
+        }
+
+        &:hover, &:focus {
+          .caret {
+            border-top-color: $colHover;
+            border-bottom-color: $colHover;
+          }
+        }
+      }
+    }
   }
 
-  .nav-links span {
-    color: $lightTextColor;
-    font-size: 1.6rem;
+  .navbar-toggle {
+    border-color: $bgHighlight;
+
+    &:hover, &:focus {
+      background-color: $bgHighlight;
+    }
+    .icon-bar {
+      background-color: $colDefault;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: $colDefault;
+
+    &:hover, &:focus {
+      color: $colHover;
+      background-color: $bgHighlight;
+    }
   }
 }
