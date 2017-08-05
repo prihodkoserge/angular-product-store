@@ -29,10 +29,19 @@
       <label for="productImage" class="control-label">Product image</label>
       <input
         id="productImage"
+        name="productImage"
         class="form-control"
         type="file"
         ng-model="$ctrl.product.image"
-        file-load>
+        file-load
+        file-extensions>
+  
+      <div
+        class="help-block"
+        ng-messages="productForm.productImage.$error"
+        ng-if="productForm.$submitted || productForm.productImage.$touched">
+        <p ng-message="validextension">Invalid file extension. Allowed are: jpg, jpeg</p>
+      </div>
       
       <div class="preview-image center-block" ng-show="$ctrl.product.image">
         <img

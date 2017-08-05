@@ -2,7 +2,7 @@ export default () => {
   return {
     restrict: 'A',
     require: 'ngModel',
-    link: (scope, el, attrs, ngModel) => {
+    link: (scope, el, attrs, ctrl) => {
       el.on("change", changeEvent => {
         const reader = new FileReader();
         reader.onload = function (loadEvent) {
@@ -14,7 +14,7 @@ export default () => {
               type: changeEvent.target.files[0].type,
               data: loadEvent.target.result
             };
-            ngModel.$setViewValue(newValue);
+            ctrl.$setViewValue(newValue);
         };
         reader.readAsDataURL(changeEvent.target.files[0]);
       });
