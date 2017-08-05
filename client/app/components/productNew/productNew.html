@@ -2,7 +2,12 @@
   <h1>{{ $ctrl.name }}</h1>
   
   <product-edit-form
+    ng-hide="$ctrl.error"
     product="$ctrl.product"
     on-save="$ctrl.create($event);">
   </product-edit-form>
+
+  <div class="alert alert-danger" ng-show="$ctrl.error">
+    An error occurred while trying to add the product
+  </div>
 </div>

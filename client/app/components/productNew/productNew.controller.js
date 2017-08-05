@@ -1,9 +1,12 @@
 class ProductNewController {
-  constructor(ProductsService) {
+  constructor(ProductsService, $state) {
     'ngInject';
 
-    this.name = 'productNew';
     this.productsService = ProductsService;
+    this.$state = $state;
+
+    this.name = 'productNew';
+    this.error = false;
   }
 
   $onInit () {
@@ -16,8 +19,16 @@ class ProductNewController {
   }
 
   create ($event) {
-    this.productsService
+    let result = this.productsService
       .createProduct($event.product);
+
+    if (result) {
+      this.$state.go('productDetails', {
+        id: result.id,
+      });
+    } else {
+      this.error = true;
+    }
   }
 }
 

@@ -1,0 +1,9 @@
+<div class="col-md-6 col-md-offset-3">
+  <h1>{{ $ctrl.name }}</h1>
+  
+  <product-edit-form
+    product="$ctrl.product"
+    on-save="$ctrl.update($event);">
+  </product-edit-form>
+  
+</div>

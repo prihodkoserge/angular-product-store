@@ -15,7 +15,7 @@ class ProductsListService {
       .get('items');
   }
 
-  setProducts () {
+  setProductsInStorage () {
     return this.localStorageService
       .set('items', this.products);
   }
@@ -23,14 +23,23 @@ class ProductsListService {
   createProduct (product) {
     const id = this.products.length + 1;
     const newProduct = Object.assign({}, product, { id });
-    this.products.push(newProduct);
+    this.products = [...this.products, newProduct];
+    if (this.setProductsInStorage()) {
+      return newProduct;
+    } else {
+      return null;
+    }
+  }
 
-    this.setProducts();
+  updateProduct (productData) {
+    let targetProduct = this.getProductByID(productData.id);
+    targetProduct = Object.assign({}, targetProduct, productData);
+    return this.setProductsInStorage();
   }
 
   removeProduct (id) {
     this.products = this.products.filter(item => item.id !== id);
-    this.setProducts();
+    return this.setProductsInStorage();
   }
 
   getProducts () {

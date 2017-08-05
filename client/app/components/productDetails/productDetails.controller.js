@@ -8,6 +8,12 @@ class ProductDetailsController {
     this.name = 'productDetails';
   }
 
+  toUpdatePage () {
+    this.$state.go('productUpdate', {
+      id: this.product.id,
+    });
+  }
+
   deleteProduct () {
     const confirmMsg = "Delete " + this.product.title + " from product store?";
     const confirmation = this.$window.confirm(confirmMsg);
