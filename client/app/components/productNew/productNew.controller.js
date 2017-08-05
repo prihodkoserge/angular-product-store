@@ -11,6 +11,7 @@ class ProductNewController {
       title: '',
       description: '',
       price: null,
+      img: null,
     };
   }
 

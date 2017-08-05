@@ -3,6 +3,16 @@
   
   <div class="panel panel-default">
     <div class="panel-body">
+      <div class="preview-image" ng-show="$ctrl.product.image">
+        <img ng-src="{{ $ctrl.product.image.data }}" alt="Thumbnail" class="img-responsive img-circle">
+      </div>
+      
+      <div class="no-image" ng-hide="$ctrl.product.image">
+        <span class="label label-danger">
+          Image is not uploaded
+        </span>
+      </div>
+      
       <div>
         Price:
         <span class="label label-info">

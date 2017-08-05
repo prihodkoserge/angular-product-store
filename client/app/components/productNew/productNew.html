@@ -14,6 +14,23 @@
     </div>
     
     <div class="form-group">
+      <label for="productImage" class="control-label">Product image</label>
+      <input
+        id="productImage"
+        class="form-control"
+        type="file"
+        ng-model="$ctrl.product.image"
+        file-load>
+  
+      <div class="preview-image center-block" ng-show="$ctrl.product.image">
+        <img
+          ng-src="{{ $ctrl.product.image.data }}"
+          class="img-responsive img-thumbnail"
+          alt="Preview image">
+      </div>
+    </div>
+    
+    <div class="form-group">
       <label for="productDescription">Product description</label>
       <textarea
         id="productDescription"
