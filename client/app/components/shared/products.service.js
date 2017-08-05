@@ -48,7 +48,6 @@ class ProductsListService {
 
   getProductByID (id) {
     let filterById = (item) => {
-      console.info(item, id, item.id == id);
       return item.id == id;
     };
     const filtered = this.products.filter(filterById);

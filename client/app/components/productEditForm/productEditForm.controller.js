@@ -3,12 +3,14 @@ class ProductEditFormController {
     this.name = 'productEditForm';
   }
 
-  save () {
-    this.onSave({
-      $event: {
-        product: this.product,
-      }
-    });
+  save (form) {
+    if (form.$valid) {
+      this.onSave({
+        $event: {
+          product: this.product,
+        }
+      });
+    }
   }
 }
 
