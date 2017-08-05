@@ -15,9 +15,9 @@ class ProductNewController {
     };
   }
 
-  create () {
+  create ($event) {
     this.productsService
-      .createProduct(this.product);
+      .createProduct($event.product);
   }
 }
 

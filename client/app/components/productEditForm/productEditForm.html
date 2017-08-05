@@ -1,0 +1,62 @@
+<div>
+  <h1>{{ $ctrl.name }}</h1>
+  
+  <form name="newProductForm" novalidate>
+    <div class="form-group">
+      <label for="productName" class="control-label">Product title</label>
+      <input
+        id="productName"
+        class="form-control"
+        type="text"
+        name="title"
+        placeholder="Awesome Product"
+        ng-model="$ctrl.product.title">
+    </div>
+    
+    <div class="form-group">
+      <label for="productImage" class="control-label">Product image</label>
+      <input
+        id="productImage"
+        class="form-control"
+        type="file"
+        ng-model="$ctrl.product.image"
+        file-load>
+      
+      <div class="preview-image center-block" ng-show="$ctrl.product.image">
+        <img
+          ng-src="{{ $ctrl.product.image.data }}"
+          class="img-responsive img-thumbnail"
+          alt="Preview image">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="productDescription">Product description</label>
+      <textarea
+        id="productDescription"
+        class="form-control"
+        rows="4"
+        placeholder="The best product ever..."
+        ng-model="$ctrl.product.description">
+      </textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="productPrice" class="control-label">Price</label>
+      <input
+        type="number"
+        id="productPrice"
+        class="form-control"
+        placeholder="One billion!"
+        name="price"
+        ng-model="$ctrl.product.price">
+    </div>
+    
+    <div class="form-group">
+      <button class="btn btn-success" ng-click="$ctrl.save()">
+        Save
+      </button>
+    </div>
+  </form>
+
+</div>

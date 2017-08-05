@@ -6,6 +6,7 @@ import Product from './product/product';
 import ProductDetails from './productDetails/productDetails';
 import ProductsList from './productsList/productsList';
 import ProductNew from './productNew/productNew';
+import ProductEditForm from './productEditForm/productEditForm';
 
 let componentModule = angular.module('app.components', [
   Shared,
@@ -14,7 +15,8 @@ let componentModule = angular.module('app.components', [
   Product,
   ProductDetails,
   ProductsList,
-  ProductNew
+  ProductNew,
+  ProductEditForm
 ])
 
 .name;
