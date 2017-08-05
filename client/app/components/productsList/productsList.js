@@ -15,7 +15,7 @@ let productsListModule = angular.module('productsList', [
       url: '/',
       component: 'productsList',
       resolve: {
-        products: ProductsService => ProductsService.getProducts()
+        products: ProductsService => ProductsService.fetchProductsFromStorage()
       }
     });
 })

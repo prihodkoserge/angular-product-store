@@ -12,7 +12,7 @@ class ProductsListService {
 
   fetchProductsFromStorage () {
     return this.localStorageService
-      .get('items');
+      .get('items') || [];
   }
 
   setProductsInStorage (products) {
@@ -23,6 +23,7 @@ class ProductsListService {
   createProduct (productData) {
     const id = this._getNextId();
     const newProduct = Object.assign({}, productData, { id });
+
 
     const oldProducts = this.fetchProductsFromStorage();
     const newProducts = [...oldProducts, newProduct];
@@ -49,10 +50,6 @@ class ProductsListService {
     const oldProducts = this.fetchProductsFromStorage();
     const newProducts = oldProducts.filter(item => item.id != id);
     return this.setProductsInStorage(newProducts);
-  }
-
-  getProducts () {
-    return this.fetchProductsFromStorage() || [];
   }
 
   getProductByID (id) {
