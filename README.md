@@ -1,7 +1,6 @@
 # Angular Product Store (Angular1.5)
 ## DONE
-- Main page - the list of all products ( basic number of 6-8
-products is a must )
+- Main page - the list of all products
 - Single product page
 - Create product page 
 - You can delete or edit products
@@ -16,8 +15,11 @@ user really wants to delete this product
 ## TODO
 - Code docs
 - Track the time you’ve spent on the task
-- Unit Testing ( at least some )
-- Routing Lazy Loading ( if that fits your design pattern )
+- Unit Testing
+- Routing Lazy Loading
+
+## Boilerplate
+I used https://github.com/AngularClass/NG6-todomvc-starter/ as a starter kit
 
 ## Build System
 NG6 uses NPM scripts, Gulp, and Webpack together for its build system. Yes, you don't need Gulp if you're using Webpack. This is true if your build system is only responsible for file manipulation. However, ours is not.
