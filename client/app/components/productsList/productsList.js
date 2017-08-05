@@ -12,7 +12,7 @@ let productsListModule = angular.module('productsList', [
 
   $stateProvider
     .state('products', {
-      url: '/products',
+      url: '/',
       component: 'productsList',
       resolve: {
         products: ProductsService => ProductsService.getProducts()
