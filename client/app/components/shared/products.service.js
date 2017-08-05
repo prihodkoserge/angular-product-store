@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 class ProductsListService {
   constructor(localStorageService) {
     'ngInject';
@@ -21,10 +23,13 @@ class ProductsListService {
   }
 
   createProduct (product) {
-    const id = this.products.length + 1;
+    const id = this._getCurrId();
     const newProduct = Object.assign({}, product, { id });
     this.products = [...this.products, newProduct];
     if (this.setProductsInStorage()) {
+      // update curr id in localStorage
+      this._setCurrId(id);
+
       return newProduct;
     } else {
       return null;
@@ -48,11 +53,19 @@ class ProductsListService {
 
   getProductByID (id) {
     let filterById = (item) => {
-      console.info(item, id, item.id == id);
       return item.id == id;
     };
     const filtered = this.products.filter(filterById);
     return filtered.length ? filtered[0] : null;
+  }
+
+  _getCurrId () {
+    const curr = this.localStorageService.get('CURR_ID');
+    return angular.isNumber(curr) ? curr + 1 : 0;
+  }
+
+  _setCurrId (id) {
+    this.localStorageService.set('CURR_ID', id);
   }
 }
 
