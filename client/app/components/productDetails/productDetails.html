@@ -1,10 +1,10 @@
 <div>
-  <h1>{{ ::$ctrl.product.title }}</h1>
+  <h1>{{ $ctrl.product.title }}</h1>
   
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="preview-image" ng-show="$ctrl.product.image">
-        <img ng-src="{{ $ctrl.product.image.data }}" alt="Thumbnail" class="img-responsive img-circle">
+        <img ng-src="{{ $ctrl.product.image.data }}" alt="Thumbnail" class="img-responsive img-thumbnail">
       </div>
       
       <div class="no-image" ng-hide="$ctrl.product.image">
@@ -16,12 +16,12 @@
       <div>
         Price:
         <span class="label label-info">
-          {{ ::$ctrl.product.price | currency }}
+          {{ $ctrl.product.price | currency }}
         </span>
       </div>
       <div>
         Description:
-        {{ ::$ctrl.product.description }}
+        {{ $ctrl.product.description }}
       </div>
     </div>
   </div>

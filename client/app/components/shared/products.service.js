@@ -8,28 +8,27 @@ class ProductsListService {
     if (!this.localStorageService.isSupported) {
       console.warn('Local storage is not supported');
     }
-
-    this.products = this.fetchProducts() || [];
   }
 
-  fetchProducts () {
+  fetchProductsFromStorage () {
     return this.localStorageService
       .get('items');
   }
 
-  setProductsInStorage () {
+  setProductsInStorage (products) {
     return this.localStorageService
-      .set('items', this.products);
+      .set('items', products);
   }
 
-  createProduct (product) {
-    const id = this._getCurrId();
-    const newProduct = Object.assign({}, product, { id });
-    this.products = [...this.products, newProduct];
-    if (this.setProductsInStorage()) {
-      // update curr id in localStorage
-      this._setCurrId(id);
+  createProduct (productData) {
+    const id = this._getNextId();
+    const newProduct = Object.assign({}, productData, { id });
 
+    const oldProducts = this.fetchProductsFromStorage();
+    const newProducts = [...oldProducts, newProduct];
+
+    if (this.setProductsInStorage(newProducts)) {
+      this._setCurrId(id); // update curr id in localStorage
       return newProduct;
     } else {
       return null;
@@ -37,35 +36,38 @@ class ProductsListService {
   }
 
   updateProduct (productData) {
-    let targetProduct = this.getProductByID(productData.id);
-    targetProduct = Object.assign({}, targetProduct, productData);
-    return this.setProductsInStorage();
+    const oldProducts = this.fetchProductsFromStorage();
+    const newProducts = oldProducts.map(product =>
+      (product.id == productData.id)
+        ? Object.assign({}, product, productData)
+        : product
+    );
+    return this.setProductsInStorage(newProducts);
   }
 
   removeProduct (id) {
-    this.products = this.products.filter(item => item.id !== id);
-    return this.setProductsInStorage();
+    const oldProducts = this.fetchProductsFromStorage();
+    const newProducts = oldProducts.filter(item => item.id != id);
+    return this.setProductsInStorage(newProducts);
   }
 
   getProducts () {
-    return this.products;
+    return this.fetchProductsFromStorage() || [];
   }
 
   getProductByID (id) {
-    let filterById = (item) => {
-      return item.id == id;
-    };
-    const filtered = this.products.filter(filterById);
+    const products = this.fetchProductsFromStorage();
+    const filtered = products.filter(item => item.id == id);
     return filtered.length ? filtered[0] : null;
   }
 
-  _getCurrId () {
+  _getNextId () {
     const curr = this.localStorageService.get('CURR_ID');
     return angular.isNumber(curr) ? curr + 1 : 0;
   }
 
   _setCurrId (id) {
-    this.localStorageService.set('CURR_ID', id);
+    return this.localStorageService.set('CURR_ID', id);
   }
 }
 

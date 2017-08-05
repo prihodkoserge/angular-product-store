@@ -2,15 +2,15 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
-        {{ ::$ctrl.product.title }}
+        {{ $ctrl.product.title }}
         <span class="label label-info">
-        {{ ::$ctrl.product.price | currency}}
+        {{ $ctrl.product.price | currency}}
       </span>
       </h3>
     </div>
     <div class="panel-body">
       <div>
-        {{ ::$ctrl.product.description }}
+        {{ $ctrl.product.description }}
       </div>
       <button class="btn btn-success" ng-click="$ctrl.selectProduct()">More details</button>
     </div>
